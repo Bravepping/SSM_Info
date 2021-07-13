@@ -18,6 +18,7 @@ public class InfosController {
     @Autowired
     private InfosService infosService;
 
+    //登记信息
     @RequestMapping("/insert")
     public ModelAndView insert(Infos infos) {
         ModelAndView modelAndView = new ModelAndView();
@@ -61,5 +62,32 @@ public class InfosController {
             System.out.println("********************2");
             model.addAttribute("msg","未查询到信息");
             return "admin/infosbyid";
+    }
+
+    //根据编号修改信息
+    @RequestMapping("/updatebyid")
+    public String updatebyid(Infos infos,Model model){
+        if (infosService.updatebyid(infos)){
+//            infosService.updatebyid(infos);
+            model.addAttribute("msg","修改后信息如下");
+            model.addAttribute("infos",infos);
+            return "admin/updateinfos";
+        }
+        else
+            model.addAttribute("msg","修改失败编号"+infos.getCard()+"不存在");
+            return "admin/updateinfos";
+    }
+
+    //根据编号删除信息
+    @RequestMapping("/deletebyid")
+    public String deletebyid(Infos infos,Model model){
+        if (infosService.deletebyid(infos)){
+            model.addAttribute("msg","删除成功");
+            model.addAttribute("infos",infos);
+            return "admin/deletebyid";
+        }
+        else
+            model.addAttribute("msg","删除失败");
+            return "admin/deletebyid";
     }
 }

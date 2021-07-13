@@ -8,4 +8,6 @@ public interface InfosService {
     int insert(Infos infos);
     List<Infos> findall();
     Infos findbyid(Integer card);
+    boolean updatebyid(Infos infos);
+    boolean deletebyid(Infos infos);
 }

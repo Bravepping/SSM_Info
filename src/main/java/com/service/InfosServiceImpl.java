@@ -29,4 +29,17 @@ public class InfosServiceImpl implements InfosService {
         return infosDao.findbyid(card);
     }
 
+    //修改信息根据编号
+    @Override
+    public boolean updatebyid(Infos infos) {
+//        infosDao.updatebyid(card);
+        return infosDao.updatebyid(infos);
+    }
+
+    //根据编号删除信息
+    @Override
+    public boolean deletebyid(Infos infos) {
+        return infosDao.deletebyid(infos);
+    }
+
 }

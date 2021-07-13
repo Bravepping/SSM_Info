@@ -14,12 +14,28 @@
 <body>
 <div align="center">
     <a href="<c:url value="/infos/findall"/>">查询所有信息</a><br>
-
+    <h2>根据编号查询信息</h2>
     <form action="<c:url value="/infos/findbyid"/>" method="post">
         编号：<input type="text" name="card">
         <input type="submit" value="查询">
     </form>
 </div>
-
+<div align="center">
+    <h2>根据编号修改信息</h2>
+    <form action="<c:url value="/infos/updatebyid"/>" method="post">
+        编号：<input type="text" name="card"><br>
+        姓名：<input type="text" name="name"><br>
+        年龄：<input type="text" name="age"><br>
+        地址：<input type="text" name="tress"><br>
+        <input type="submit" value="修改">
+    </form>
+</div>
+<div align="center">
+    <h2>根据编号删除信息</h2>
+    <form action="<c:url value="/infos/deletebyid"/>" method="post">
+        编号：<input type="text" name="card">
+        <input type="submit" value="删除信息">
+    </form>
+</div>
 </body>
 </html>
