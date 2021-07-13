@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+//信息登记
 @RequestMapping("/infos")
 public class InfosController {
 
