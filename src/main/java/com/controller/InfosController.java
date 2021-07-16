@@ -12,14 +12,14 @@ import java.util.List;
 
 @Controller
 //信息登记
-@RequestMapping("/infos")
+
 public class InfosController {
 
     @Autowired
     private InfosService infosService;
 
     //登记信息
-    @RequestMapping("/insert")
+    @RequestMapping("/infos/insert")
     public ModelAndView insert(Infos infos) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("../../index");
@@ -40,16 +40,18 @@ public class InfosController {
 
 
     //查询所有信息
-    @RequestMapping("findall")
-    public String findall(Model model){
+    @RequestMapping("/admin/findall")
+    public ModelAndView findall(){
+        ModelAndView modelAndView=new ModelAndView();
         List <Infos> list = infosService.findall();
-        model.addAttribute("msg","查询信息如下");
-        model.addAttribute("infos",list);
-        return "admin/infos";
+        modelAndView.addObject("msg","查询信息如下");
+        modelAndView.addObject("infos",list);
+        modelAndView.setViewName("admin/infos");
+        return modelAndView;
     }
 
     //根据编号查询信息
-    @RequestMapping("/findbyid")
+    @RequestMapping("/admin/findbyid")
     public String findbyid(Integer card,Model model){
         Infos infos=infosService.findbyid(card);
         if (infos!=null){
@@ -65,7 +67,7 @@ public class InfosController {
     }
 
     //根据编号修改信息
-    @RequestMapping("/updatebyid")
+    @RequestMapping("/admin/updatebyid")
     public String updatebyid(Infos infos,Model model){
         if (infosService.updatebyid(infos)){
 //            infosService.updatebyid(infos);
@@ -79,7 +81,7 @@ public class InfosController {
     }
 
     //根据编号删除信息
-    @RequestMapping("/deletebyid")
+    @RequestMapping("/admin/deletebyid")
     public String deletebyid(Infos infos,Model model){
         if (infosService.deletebyid(infos)){
             model.addAttribute("msg","删除成功");

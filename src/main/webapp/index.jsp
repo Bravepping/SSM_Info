@@ -10,29 +10,40 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>SSM信息登记表</title>
+    <title>SSM信息登记</title>
 
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/>" rel="stylesheet" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
+
 </head>
 <body>
-
-<div class="form-structor">
-
-    <div class="signup">
-        <h2 class="form-title" id="signup"><span></span>信息登记表</h2>
-        <div class="form-holder">
-            <form action="${pageContext.request.contextPath}/infos/insert" method="post">
-            <input type="text" name="card" class="input" placeholder="编号" />
-            <input type="text" name="name" class="input" placeholder="姓名" />
-            <input type="text" name="age" class="input" placeholder="年龄" />
-            <input type="text" name="tress" class="input" placeholder="地址">
-            <input type="submit" class="submit-btn" value="登记" onclick="register()">
-            </form>
+<form action="${pageContext.request.contextPath}/infos/insert" method="post">
+    <div class="form-structor">
+        <div class="signup">
+            <h2 class="form-title" id="signup">信息登记表</h2>
+            <div class="form-holder">
+                <input type="text" class="input" placeholder="编号" name="card" />
+                <input type="text" class="input" placeholder="姓名" name="name"/>
+                <input type="text" class="input" placeholder="年龄" name="age" />
+                <input type="text" class="input" placeholder="地址" name="tress" />
+            </div>
+            <button class="submit-btn" type="submit" onclick="res()">登记</button>
         </div>
-        <h4 align="center">${msg}</h4>
+        <div class="login slide-up">
+            <div class="center">
+<%--                <h2 class="form-title" id="login"><span>或</span>登录</h2>--%>
+<%--                <div class="form-holder">--%>
+<%--                    <input type="email" class="input" placeholder="邮箱" />--%>
+<%--                    <input type="password" class="input" placeholder="密码" />--%>
+<%--                </div>--%>
+<%--                <button class="submit-btn">登录</button>--%>
+                <h4 align="center">${msg}</h4>
+            </div>
+        </div>
     </div>
+</form>
 
-</div>
-<script src="<c:url value="/js/script.js"/>"></script>
+
+<script src="${pageContext.request.contextPath}/js/script.js"></script>
+
 </body>
 </html>

@@ -13,16 +13,16 @@
 </head>
 <body>
 <div align="center">
-    <a href="<c:url value="/infos/findall"/>">查询所有信息</a><br>
+    <a href="${pageContext.request.contextPath}/admin/findall">查询所有信息</a><br>
     <h2>根据编号查询信息</h2>
-    <form action="<c:url value="/infos/findbyid"/>" method="post">
+    <form action="<c:url value="/admin/findbyid"/>" method="post">
         编号：<input type="text" name="card">
         <input type="submit" value="查询">
     </form>
 </div>
 <div align="center">
     <h2>根据编号修改信息</h2>
-    <form action="<c:url value="/infos/updatebyid"/>" method="post">
+    <form action="${pageContext.request.contextPath}/admin/updatebyid" method="post">
         编号：<input type="text" name="card"><br>
         姓名：<input type="text" name="name"><br>
         年龄：<input type="text" name="age"><br>
@@ -32,7 +32,7 @@
 </div>
 <div align="center">
     <h2>根据编号删除信息</h2>
-    <form action="<c:url value="/infos/deletebyid"/>" method="post">
+    <form action="${pageContext.request.contextPath}/admin/deletebyid" method="post">
         编号：<input type="text" name="card">
         <input type="submit" value="删除信息">
     </form>
