@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -17,9 +19,10 @@ public class AdminController {
     private AdminService adminService;
 
     @RequestMapping("/login")
-    public String login(Admin admin){
+    public String login(Admin admin, HttpSession session){
 
         if (adminService.login(admin)!=null){
+            session.setAttribute("admin",admin);
             return "admin/admin";
         }
         else {

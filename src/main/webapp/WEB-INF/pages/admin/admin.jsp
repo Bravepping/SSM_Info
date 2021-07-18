@@ -13,7 +13,7 @@
 </head>
 <body>
 <div align="center">
-    <a href="${pageContext.request.contextPath}/admin/findall">查询所有信息</a><br>
+    <a href="<c:url value="/admin/findall"/>">查询所有信息</a><br>
     <h2>根据编号查询信息</h2>
     <form action="<c:url value="/admin/findbyid"/>" method="post">
         编号：<input type="text" name="card">
